@@ -1,7 +1,7 @@
 {
-  "name": "whatsapp-api",
-  "version": "1.0.0",
-  "description": "Whatsapp api by Ngekoding",
+  "name": "whatsapp-api", 
+  "version": "1.0.0", 
+  "description": "Whatsapp api Recode by Arif",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

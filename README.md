@@ -1,6 +1,6 @@
-## ProjectName
+## WhatsApp Bot + ChatGPT OpenAI
 
-### How to use?   
+### How to use?
 
 - Download Source Code
 - Open Project > Run `npm install`
