@@ -1,26 +1,25 @@
-const { Client } = require('whatsapp-web.js');
-const http = require('http'); 
-const express = require('express');
+const { Client, MessageMedia, LocalAuth } = require('whatsapp-web.js');
+const express = require('express'); 
 const { body, validationResult } = require('express-validator');
-const socketIO = require('socket.io');   
-const puppeteer = require('puppeteer');     
-const qrcode = require('qrcode');  
+const socketIO = require('socket.io');
+const qrcode = require('qrcode'); 
+const http = require('http'); 
+const fs = require('fs'); 
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
+const { ChatAIHandler } = require('./feature/chat_ai');
 
 const port = process.env.PORT || 8000;
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);    
-const { ChatAIHandler } = require('./feature/chat_ai'); 
-const { response } = require('express');
+const io = socketIO(server);
 
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
-})); 
+}));
 app.use(fileUpload({  
   debug: true
 })); 
@@ -30,19 +29,36 @@ app.get('/', (req, res) => {
     root: __dirname
   });
 });
- 
-const client = new Client();
 
-// client.on('message', async (msg) => {
-client.on('message', msg => { 
-  const keyword = msg.body.toLowerCase();    
-  if (msg.body=="ping") {   
-    msg.reply("pong");  
+const client = new Client({
+  restartOnAuthFail: true,
+  puppeteer: {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--single-process', // <- this one doesn't works in Windows
+      '--disable-gpu'
+    ],
+  },
+  authStrategy: new LocalAuth()
+});
+
+client.on('message', async (msg) => {  
+  const keyword = msg.body.toLowerCase();  
+ 
+  if (msg.body == 'ping') {     
+    msg.reply('pong');   
   } 
-  // #tanya/question?     
+  
   // if (keyword.includes("tanya ai")) {   
   //   await ChatAIHandler(keyword, msg);    
-  // }    
+  // }  
+
 });
 
 client.initialize();
@@ -50,6 +66,7 @@ client.initialize();
 // Socket IO
 io.on('connection', function(socket) {
   socket.emit('message', 'Connecting...');
+
   client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
     qrcode.toDataURL(qr, (err, url) => {
