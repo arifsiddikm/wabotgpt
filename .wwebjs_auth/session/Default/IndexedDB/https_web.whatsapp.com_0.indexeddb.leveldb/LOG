@@ -1,0 +1,26 @@
+2023/01/16-14:40:40.956 19503 Creating DB /Applications/XAMPP/xamppfiles/htdocs/Project/MyProjectOnGitHub/wabotgpt/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
+2023/01/16-14:40:41.006 19503 Reusing MANIFEST /Applications/XAMPP/xamppfiles/htdocs/Project/MyProjectOnGitHub/wabotgpt/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/01/16-14:40:41.135 17203 Level-0 table #5: started
+2023/01/16-14:40:41.162 17203 Level-0 table #5: 7462 bytes OK
+2023/01/16-14:40:41.201 17203 Delete type=0 #3
+2023/01/16-14:40:41.201 17203 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/01/16-14:42:10.398 1ac0b Level-0 table #7: started
+2023/01/16-14:42:10.467 1ac0b Level-0 table #7: 1064679 bytes OK
+2023/01/16-14:42:10.509 1ac0b Delete type=0 #4
+2023/01/16-14:42:11.465 b007 Level-0 table #9: started
+2023/01/16-14:42:11.509 b007 Level-0 table #9: 926637 bytes OK
+2023/01/16-14:42:11.573 b007 Delete type=0 #6
+2023/01/16-14:42:11.577 b007 Compacting 1@0 + 1@1 files
+2023/01/16-14:42:11.685 b007 Generated table #10@0: 47751 keys, 1467570 bytes
+2023/01/16-14:42:11.685 b007 Compacted 1@0 + 1@1 files => 1467570 bytes
+2023/01/16-14:42:11.718 b007 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/01/16-14:42:17.577 20103 Level-0 table #12: started
+2023/01/16-14:42:17.639 20103 Level-0 table #12: 1214142 bytes OK
+2023/01/16-14:42:17.679 20103 Delete type=2 #7
+2023/01/16-14:42:17.679 20103 Delete type=2 #9
+2023/01/16-14:42:17.679 20103 Delete type=0 #8
+2023/01/16-14:42:17.703 20103 Compacting 1@0 + 1@1 files
+2023/01/16-14:42:17.839 20103 Generated table #13@0: 59415 keys, 2248504 bytes
+2023/01/16-14:42:17.859 20103 Generated table #14@0: 1470 keys, 43842 bytes
+2023/01/16-14:42:17.859 20103 Compacted 1@0 + 1@1 files => 2292346 bytes
+2023/01/16-14:42:17.895 20103 compacted to: files[ 0 2 1 0 0 0 0 ]

@@ -55,10 +55,10 @@ client.on('message', async (msg) => {
     msg.reply('pong');   
   } 
   
-  // if (keyword.includes("tanya ai")) {   
-  //   await ChatAIHandler(keyword, msg);    
-  // }  
-
+  if (keyword.includes("tanya ai")) {   
+    await ChatAIHandler(keyword, msg);    
+  }
+  
 });
 
 client.initialize();
